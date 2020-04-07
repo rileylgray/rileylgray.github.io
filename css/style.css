@@ -19,7 +19,6 @@ body, html {
   
 }
 .homeimage{
-    /* background-image: url("../images/mydesk.jpg");*/
     background-image: linear-gradient(#006bb3,  #b3e0ff);
     height: 100vh;
     background-position: center; 
@@ -29,7 +28,7 @@ body, html {
 
 .devicons{
     padding: 20px;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 
 .main-text {
