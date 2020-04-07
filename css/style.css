@@ -143,7 +143,6 @@ img{
 }
 section{
     padding: 40px 10px;
-
 }
 
 .work{
@@ -178,4 +177,7 @@ footer{
 .copy{
     margin-bottom: 10px;
     text-align: center;
+}
+p{
+    margin: 5px 0px;
 }
