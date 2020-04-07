@@ -15,8 +15,9 @@ and open the template in the editor.
 body, html {
     height: 100%;
     font-size: 20px;
-    font-weight: 300;
-  
+    font-weight: 300;  
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+
 }
 .homeimage{
     background-image: linear-gradient(#006bb3,  #b3e0ff);
@@ -44,7 +45,7 @@ body, html {
 
 .row{
     max-width: 1140px;
-    margin: 0 auto;
+    margin: 0px auto;
 }
 
 h1,h2,h3,h4{
@@ -53,7 +54,7 @@ h1,h2,h3,h4{
     text-transform: uppercase;
 }
 h1{
-    font-size: 400%
+    font-size: 350%
 }
 h2{
     margin-top:0;
@@ -79,13 +80,10 @@ h4:after{
     background-color: #999999;
     width: 100%;
     content: "  ";
-    
+
 }
 
 h3{
-    font-size: 150%;
-    font-weight: 300;
-    letter-spacing: 1px;
     margin-bottom:3%;
 }
 
@@ -98,20 +96,20 @@ h3{
     text-decoration: none;
     border-radius: 200px;
     transition: background-color 0.3s, border 0.3s, color 0.3s;
-     -webkit-transition: background-color 0.3s, border 0.3s, color 0.3s;
+    -webkit-transition: background-color 0.3s, border 0.3s, color 0.3s;
 }
 .btn{
     margin: 5px;
 }
-.btn-info:link,
-.btn-info:visited{
+.btn-work:link,
+.btn-work:visited{
     background-color: #bfbfbf;
     color: #f2f2f2;
     border: 1px solid #bfbfbf;
 }
 
-.btn-work:link,
-.btn-work:visited{
+.btn-info:link,
+.btn-info:visited{
     color: #f2f2f2;
     border: 1px solid #bfbfbf;
 }
@@ -119,35 +117,47 @@ h3{
 .btn:hover,
 .btn:active{
     background-color: #999999;
+    border: 1px solid #999999;
 }
 
-.btn-info:hover,
-.btn-info:active{
-    border: 1px solid black;
 
-}
-.btn-work:hover,
-.btn-work:active{
-    border: 1px solid black;
-}
 
 img{
     width: 100%;
     float: right;
 }
-
-section{
-    padding: 80px 0px;
+.gitlink{
+   text-decoration: none; 
+   color: black;
 }
+.gitlink:hover,
+.gitlink:active{
+    color: #006bb3;
+}
+
+.gitlink:link,
+.gitlink:visited{
+   
+    transition: color 0.3s;
+    -webkit-transition: color 0.3s;
+}
+section{
+    padding: 40px 10px;
+
+}
+
 .work{
-     margin: 0 10px;
+    background-color: #bfbfbf;
+}
+.about{
 }
 .intro{
     line-height: 145%;
     width:75%;
     margin-left: 15%;
-        text-align: center;
-        margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+
 }
 
 footer{
@@ -166,6 +176,6 @@ footer{
 }
 
 .copy{
-        margin-bottom: 10px;
-        text-align: center;
+    margin-bottom: 10px;
+    text-align: center;
 }
