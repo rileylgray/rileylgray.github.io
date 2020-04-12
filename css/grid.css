@@ -62,7 +62,13 @@
 	}
 	.span-1-of-2 {
 		width: 100%; 
+
 	}
+        .flipx{
+                transform: rotatex(180deg);
+
+        }
+       
 }
 
 
