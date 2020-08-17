@@ -5,4 +5,7 @@ $(document).ready(function(){
     $('.scroll-me').click(function(){
       $('html, body').animate({scrollTop: $('.jsabout').offset().top},1000);
    });
+    $('.scroll-policy').click(function(){
+      $('html, body').animate({scrollTop: $('.jspolicy').offset().top},1000);
+   });
 });
