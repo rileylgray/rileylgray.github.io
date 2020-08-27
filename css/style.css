@@ -19,17 +19,18 @@ body, html {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
 
 }
+
 .homeimage{
     background-image: linear-gradient(#006bb3,  #b3e0ff);
     height: 100vh;
     background-position: center; 
     background-repeat: no-repeat;
     background-size: cover; 
+
 }  
 
 .devicons{
     padding: 20px 0px;
-    margin: 0 auto;
 }
 
 .main-text {
@@ -41,6 +42,11 @@ body, html {
     color: #f2f2f2;
     font-family: "Arial";
 
+}
+@media only screen and (max-width: 600px) {
+  .main-text {
+        margin-top: 10%;
+  }
 }
 
 .row{
