@@ -19,7 +19,9 @@ body, html {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
 
 }
-
+#contact{
+    font-size: 14px;
+}
 .homeimage{
     background-image: linear-gradient(#006bb3,  #b3e0ff);
     height: 100vh;
