@@ -141,3 +141,14 @@ footer{
     display:inline-block;
     margin: 10px 10px
 }
+
+@media (max-width: 520px) {
+  video {
+    height: 150px;
+    width: 250px;
+  }
+  .landVideo{
+     height: 250px;
+    width: 150px; 
+  }
+}
