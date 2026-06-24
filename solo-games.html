@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Solo Games - A collection of fun single player games. Coming soon to iOS and Android." />
+        <meta name="description" content="Solo Games - A collection of fun single player games. Available now on iOS, coming soon to Android." />
         <meta name="author" content="Riley Gray" />
         <title>Solo Games</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
@@ -75,20 +75,57 @@
                 max-width: 540px;
             }
 
-            .coming-soon-badge {
-                display: inline-block;
-                background-color: #2a2a4a;
-                border: 1.5px solid #5555aa;
-                color: #9999dd;
-                font-family: 'Saira Extra Condensed', sans-serif;
-                font-size: 1.4rem;
-                font-weight: 700;
-                letter-spacing: 0.15rem;
-                text-transform: uppercase;
-                border-radius: 10px;
-                padding: 0.6rem 2rem;
+            .store-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
                 margin-bottom: 3.5rem;
             }
+
+            .store-btn {
+                display: flex;
+                align-items: center;
+                gap: 0.85rem;
+                background-color: #000000;
+                color: #ffffff;
+                border-radius: 12px;
+                padding: 0.75rem 1.5rem;
+                width: 220px;
+                border: 1.5px solid #444;
+                transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+            }
+            .store-btn:hover {
+                background-color: #1c1c1c;
+                border-color: #888;
+                color: #ffffff;
+                transform: translateY(-2px);
+            }
+            .store-btn i { font-size: 2rem; flex-shrink: 0; }
+            .store-btn-text { display: flex; flex-direction: column; text-align: left; }
+            .store-btn-label {
+                font-size: 0.65rem;
+                text-transform: uppercase;
+                letter-spacing: 0.06rem;
+                color: #aaa;
+                line-height: 1;
+            }
+            .store-btn-name { font-size: 1.1rem; font-weight: 700; line-height: 1.3; }
+
+            .store-btn.disabled {
+                background-color: #16161f;
+                border-color: #333;
+                color: #777;
+                cursor: default;
+            }
+            .store-btn.disabled:hover {
+                background-color: #16161f;
+                border-color: #333;
+                color: #777;
+                transform: none;
+            }
+            .store-btn.disabled i { color: #777; }
+            .store-btn.disabled .store-btn-label { color: #666; }
 
             .section-heading {
                 font-family: 'Saira Extra Condensed', sans-serif;
@@ -156,6 +193,10 @@
             .feature p { margin: 0; color: #b0b8d1; font-size: 0.95rem; line-height: 1.5; }
 
             .block { margin-top: 3.5rem; }
+
+            @media (min-width: 480px) {
+                .store-buttons { flex-direction: row; justify-content: center; }
+            }
         </style>
     </head>
     <body>
@@ -166,8 +207,21 @@
             <h1 class="app-title">Solo Games</h1>
             <p class="app-subtitle">A collection of fun single-player games to keep you entertained anytime, anywhere &mdash; one tap away whenever you have a moment to spare.</p>
 
-            <div>
-                <span class="coming-soon-badge">Coming Soon</span>
+            <div class="store-buttons">
+                <a href="https://apps.apple.com/us/app/solo-games-puzzle-arcade/id6781039151" class="store-btn" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-apple"></i>
+                    <span class="store-btn-text">
+                        <span class="store-btn-label">Download on the</span>
+                        <span class="store-btn-name">App Store</span>
+                    </span>
+                </a>
+                <span class="store-btn disabled">
+                    <i class="fab fa-google-play"></i>
+                    <span class="store-btn-text">
+                        <span class="store-btn-label">Coming soon to</span>
+                        <span class="store-btn-name">Google Play</span>
+                    </span>
+                </span>
             </div>
 
             <section class="block">
@@ -202,7 +256,7 @@
                     <div class="feature">
                         <i class="fas fa-mobile-alt"></i>
                         <h3>iOS &amp; Android</h3>
-                        <p>Built with Flutter and launching soon on both the App Store and Google Play.</p>
+                        <p>Built with Flutter and available now on the App Store, with Google Play coming soon.</p>
                     </div>
                 </div>
             </section>
