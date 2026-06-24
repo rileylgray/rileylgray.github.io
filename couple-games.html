@@ -3,14 +3,13 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Couple Games - Fun games to play with your partner. Available on iOS and Android." />
+        <meta name="description" content="Couple Games - A collection of fun two player games to play with your partner. Available on iOS and Android." />
         <meta name="author" content="Riley Gray" />
         <title>Couple Games</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-        <link href="css/bootstrap.css" rel="stylesheet" />
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-PNG9SGHV39"></script>
         <script>
@@ -20,49 +19,60 @@
             gtag('config', 'G-PNG9SGHV39');
         </script>
         <style>
-            /* Reset sidebar offset from bootstrap.css */
+            * { box-sizing: border-box; }
+
             body {
-                padding-left: 0 !important;
-                padding-top: 0 !important;
                 margin: 0;
-                background-color: #1a1a2e;
+                background: radial-gradient(circle at 50% 0%, #2a2150 0%, #1a1a2e 45%, #12121f 100%);
                 color: #f0f0f0;
                 font-family: 'Muli', sans-serif;
                 min-height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
             }
 
-            .hero {
+            a { text-decoration: none; }
+
+            .back-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.4rem;
+                color: #b0b8d1;
+                font-size: 0.95rem;
+                padding: 1.5rem 0 0 1.75rem;
+                transition: color 0.2s ease;
+            }
+            .back-link:hover { color: #ffffff; }
+
+            .wrap {
+                max-width: 960px;
+                margin: 0 auto;
+                padding: 1rem 1.5rem 4rem;
                 text-align: center;
-                padding: 3rem 1.5rem;
-                max-width: 480px;
-                width: 100%;
             }
 
             .app-icon {
-                width: 160px;
-                height: 160px;
-                border-radius: 36px;
+                width: 150px;
+                height: 150px;
+                border-radius: 34px;
                 margin-bottom: 1.5rem;
-                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+                box-shadow: 0 10px 36px rgba(0, 0, 0, 0.55);
             }
 
             .app-title {
                 font-family: 'Saira Extra Condensed', sans-serif;
-                font-size: 3rem;
+                font-size: 3.25rem;
                 font-weight: 700;
                 text-transform: uppercase;
                 color: #ffffff;
-                margin-bottom: 0.5rem;
+                margin: 0 0 0.4rem;
                 letter-spacing: 0.05rem;
+                line-height: 1;
             }
 
             .app-subtitle {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
                 color: #b0b8d1;
-                margin-bottom: 2.5rem;
+                margin: 0 auto 1.75rem;
+                max-width: 540px;
             }
 
             .store-buttons {
@@ -70,42 +80,29 @@
                 flex-direction: column;
                 align-items: center;
                 gap: 1rem;
+                margin-bottom: 3.5rem;
             }
 
             .store-btn {
                 display: flex;
                 align-items: center;
-                justify-content: flex-start;
                 gap: 0.85rem;
                 background-color: #000000;
                 color: #ffffff;
-                text-decoration: none;
                 border-radius: 12px;
                 padding: 0.75rem 1.5rem;
                 width: 220px;
                 border: 1.5px solid #444;
                 transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
             }
-
             .store-btn:hover {
                 background-color: #1c1c1c;
                 border-color: #888;
                 color: #ffffff;
-                text-decoration: none;
                 transform: translateY(-2px);
             }
-
-            .store-btn i {
-                font-size: 2rem;
-                flex-shrink: 0;
-            }
-
-            .store-btn-text {
-                display: flex;
-                flex-direction: column;
-                text-align: left;
-            }
-
+            .store-btn i { font-size: 2rem; flex-shrink: 0; }
+            .store-btn-text { display: flex; flex-direction: column; text-align: left; }
             .store-btn-label {
                 font-size: 0.65rem;
                 text-transform: uppercase;
@@ -113,26 +110,89 @@
                 color: #aaa;
                 line-height: 1;
             }
+            .store-btn-name { font-size: 1.1rem; font-weight: 700; line-height: 1.3; }
 
-            .store-btn-name {
-                font-size: 1.1rem;
+            .section-heading {
+                font-family: 'Saira Extra Condensed', sans-serif;
+                font-size: 2rem;
                 font-weight: 700;
-                line-height: 1.3;
+                text-transform: uppercase;
+                letter-spacing: 0.08rem;
+                color: #ffffff;
+                margin: 0 0 1.75rem;
             }
 
+            /* Screenshot gallery */
+            .shots {
+                display: flex;
+                gap: 1rem;
+                overflow-x: auto;
+                padding: 0.5rem 0.25rem 1.5rem;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+                scrollbar-color: #5555aa rgba(255, 255, 255, 0.06);
+            }
+            .shots::-webkit-scrollbar {
+                height: 10px;
+            }
+            .shots::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.06);
+                border-radius: 10px;
+            }
+            .shots::-webkit-scrollbar-thumb {
+                background: linear-gradient(90deg, #5555aa, #9999dd);
+                border-radius: 10px;
+            }
+            .shots::-webkit-scrollbar-thumb:hover {
+                background: linear-gradient(90deg, #6a6ac4, #b0b0ee);
+            }
+            .shots img {
+                height: 460px;
+                border-radius: 22px;
+                flex-shrink: 0;
+                scroll-snap-align: center;
+                box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+                border: 1px solid rgba(255, 255, 255, 0.06);
+            }
+
+            /* Features */
+            .features {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 1.25rem;
+                margin-top: 1rem;
+                text-align: left;
+            }
+            .feature {
+                background: rgba(255, 255, 255, 0.04);
+                border: 1px solid rgba(255, 255, 255, 0.07);
+                border-radius: 16px;
+                padding: 1.5rem;
+            }
+            .feature i { font-size: 1.6rem; color: #9999dd; margin-bottom: 0.75rem; }
+            .feature h3 {
+                font-size: 1.15rem;
+                font-weight: 800;
+                margin: 0 0 0.4rem;
+                color: #ffffff;
+            }
+            .feature p { margin: 0; color: #b0b8d1; font-size: 0.95rem; line-height: 1.5; }
+
+            .block { margin-top: 3.5rem; }
+
             @media (min-width: 480px) {
-                .store-buttons {
-                    flex-direction: row;
-                    justify-content: center;
-                }
+                .store-buttons { flex-direction: row; justify-content: center; }
             }
         </style>
     </head>
     <body>
-        <main class="hero">
-            <img src="images/featured.png" alt="Couple Games app icon" class="app-icon" />
+        <a href="index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to portfolio</a>
+
+        <main class="wrap">
+            <img src="assets/img/portfolio/couplegames/gameicon.png" alt="Couple Games app icon" class="app-icon" />
             <h1 class="app-title">Couple Games</h1>
-            <p class="app-subtitle">A collection of fun 2 player games</p>
+            <p class="app-subtitle">A collection of fun two-player games designed to be played together on a single phone &mdash; perfect for date night, road trips, or breaking the ice.</p>
 
             <div class="store-buttons">
                 <a href="https://apps.apple.com/app/id6761193720" class="store-btn" target="_blank" rel="noopener noreferrer">
@@ -142,7 +202,6 @@
                         <span class="store-btn-name">App Store</span>
                     </span>
                 </a>
-
                 <a href="https://play.google.com/store/apps/details?id=com.realgamesrealfun.couplegames" class="store-btn" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-google-play"></i>
                     <span class="store-btn-text">
@@ -151,6 +210,44 @@
                     </span>
                 </a>
             </div>
+
+            <section class="block">
+                <h2 class="section-heading">Screenshots</h2>
+                <div class="shots">
+                    <img src="assets/img/portfolio/couplegames/1.png" alt="Couple Games screenshot 1" />
+                    <img src="assets/img/portfolio/couplegames/2.png" alt="Couple Games screenshot 2" />
+                    <img src="assets/img/portfolio/couplegames/3.png" alt="Couple Games screenshot 3" />
+                    <img src="assets/img/portfolio/couplegames/4.png" alt="Couple Games screenshot 4" />
+                    <img src="assets/img/portfolio/couplegames/5.png" alt="Couple Games screenshot 5" />
+                    <img src="assets/img/portfolio/couplegames/6.png" alt="Couple Games screenshot 6" />
+                </div>
+            </section>
+
+            <section class="block">
+                <h2 class="section-heading">Why you'll love it</h2>
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-heart"></i>
+                        <h3>Made for two</h3>
+                        <p>Every game is built for two players sharing one device &mdash; no second phone or internet connection required.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>A growing collection</h3>
+                        <p>From quick reflex duels to mind games, there's a variety of games to suit any mood, with more added over time.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Pick up and play</h3>
+                        <p>Simple rules and instant matches mean you can jump in within seconds &mdash; great for a quick round anywhere.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>iOS &amp; Android</h3>
+                        <p>Built with Flutter and available free on both the App Store and Google Play.</p>
+                    </div>
+                </div>
+            </section>
         </main>
     </body>
 </html>
