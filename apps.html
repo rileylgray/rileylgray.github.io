@@ -49,13 +49,46 @@
                 text-align: center;
             }
 
+            .app-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+                margin-top: 1rem;
+            }
+
+            .app-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background: rgba(255, 255, 255, 0.04);
+                border: 1px solid rgba(255, 255, 255, 0.07);
+                border-radius: 20px;
+                padding: 2.5rem 1.5rem;
+            }
+            .app-card .app-subtitle { flex-grow: 1; }
+            .app-card .store-buttons,
+            .app-card .coming-soon-badge { margin-bottom: 0; }
+
+            @media (max-width: 640px) {
+                .app-grid { grid-template-columns: 1fr; }
+            }
+
             .app-icon {
                 width: 150px;
                 height: 150px;
                 border-radius: 34px;
                 margin-bottom: 1.5rem;
                 box-shadow: 0 10px 36px rgba(0, 0, 0, 0.55);
+                transition: transform 0.15s ease, box-shadow 0.15s ease;
             }
+
+            .app-link { display: inline-block; }
+            .app-link .app-icon:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 16px 44px rgba(0, 0, 0, 0.65);
+            }
+            .app-link .app-title { transition: color 0.15s ease; }
+            .app-link:hover .app-title { color: #b0b8d1; }
 
             .app-title {
                 font-family: 'Saira Extra Condensed', sans-serif;
@@ -79,6 +112,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                flex-wrap: wrap;
                 gap: 1rem;
                 margin-bottom: 3.5rem;
             }
@@ -203,62 +237,80 @@
     </head>
     <body>
         <main class="wrap">
-            <img src="assets/img/portfolio/couplegames/gameicon.png" alt="Couple Games app icon" class="app-icon" />
-            <h1 class="app-title">Couple Games</h1>
-            <p class="app-subtitle">A collection of fun two-player games designed to be played together on a single phone &mdash; perfect for date night, road trips, or breaking the ice.</p>
+            <div class="app-grid">
+                <div class="app-card">
+                    <a href="couple-games.html" class="app-link">
+                        <img src="assets/img/portfolio/couplegames/gameicon.png" alt="Couple Games app icon" class="app-icon" />
+                        <h1 class="app-title">Couple Games</h1>
+                    </a>
+                    <p class="app-subtitle">A collection of fun two-player games designed to be played together on a single phone &mdash; perfect for date night, road trips, or breaking the ice.</p>
 
-            <div class="store-buttons">
-                <a href="https://apps.apple.com/app/id6761193720" class="store-btn" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-apple"></i>
-                    <span class="store-btn-text">
-                        <span class="store-btn-label">Download on the</span>
-                        <span class="store-btn-name">App Store</span>
-                    </span>
-                </a>
-                <a href="https://play.google.com/store/apps/details?id=com.realgamesrealfun.couplegames" class="store-btn" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-google-play"></i>
-                    <span class="store-btn-text">
-                        <span class="store-btn-label">Get it on</span>
-                        <span class="store-btn-name">Google Play</span>
-                    </span>
-                </a>
-            </div>
+                    <div class="store-buttons">
+                        <a href="https://apps.apple.com/app/id6761193720" class="store-btn" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-apple"></i>
+                            <span class="store-btn-text">
+                                <span class="store-btn-label">Download on the</span>
+                                <span class="store-btn-name">App Store</span>
+                            </span>
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.realgamesrealfun.couplegames" class="store-btn" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-google-play"></i>
+                            <span class="store-btn-text">
+                                <span class="store-btn-label">Get it on</span>
+                                <span class="store-btn-name">Google Play</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
 
-            <img src="assets/img/portfolio/sologames/icon.png" alt="Solo Games app icon" class="app-icon" />
-            <h1 class="app-title">Solo Games</h1>
-            <p class="app-subtitle">A collection of fun single-player games to keep you entertained anytime, anywhere &mdash; one tap away whenever you have a moment to spare.</p>
+                <div class="app-card">
+                    <a href="solo-games.html" class="app-link">
+                        <img src="assets/img/portfolio/sologames/icon.png" alt="Solo Games app icon" class="app-icon" />
+                        <h1 class="app-title">Solo Games</h1>
+                    </a>
+                    <p class="app-subtitle">A collection of fun single-player games to keep you entertained anytime, anywhere &mdash; one tap away whenever you have a moment to spare.</p>
 
-            <div class="store-buttons">
-                <a href="https://apps.apple.com/us/app/solo-games-puzzle-arcade/id6781039151" class="store-btn" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-apple"></i>
-                    <span class="store-btn-text">
-                        <span class="store-btn-label">Download on the</span>
-                        <span class="store-btn-name">App Store</span>
-                    </span>
-                </a>
-                <span class="store-btn disabled">
-                    <i class="fab fa-google-play"></i>
-                    <span class="store-btn-text">
-                        <span class="store-btn-label">Coming soon to</span>
-                        <span class="store-btn-name">Google Play</span>
-                    </span>
-                </span>
-            </div>
+                    <div class="store-buttons">
+                        <a href="https://apps.apple.com/us/app/solo-games-puzzle-arcade/id6781039151" class="store-btn" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-apple"></i>
+                            <span class="store-btn-text">
+                                <span class="store-btn-label">Download on the</span>
+                                <span class="store-btn-name">App Store</span>
+                            </span>
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.realgamesrealfun.sologames" class="store-btn" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-google-play"></i>
+                            <span class="store-btn-text">
+                                <span class="store-btn-label">Get it on</span>
+                                <span class="store-btn-name">Google Play</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
 
-            <img src="assets/img/portfolio/walktheearth/icon.png" alt="Walk the Earth app icon" class="app-icon" />
-            <h1 class="app-title">Walk the Earth</h1>
-            <p class="app-subtitle">A step-tracking adventure that walks your in-app avatar across a virtual world map as you move in real life. Turn everyday steps into a journey around the globe.</p>
+                <div class="app-card">
+                    <a href="walk-the-earth.html" class="app-link">
+                        <img src="assets/img/portfolio/walktheearth/icon.png" alt="Walk the Earth app icon" class="app-icon" />
+                        <h1 class="app-title">Walk the Earth</h1>
+                    </a>
+                    <p class="app-subtitle">A step-tracking adventure that walks your in-app avatar across a virtual world map as you move in real life. Turn everyday steps into a journey around the globe.</p>
 
-            <div>
-                <span class="coming-soon-badge">Coming Soon</span>
-            </div>
+                    <div>
+                        <span class="coming-soon-badge">Coming Soon</span>
+                    </div>
+                </div>
 
-            <img src="assets/img/portfolio/couplelife/icon.png" alt="Couple Life app icon" class="app-icon" />
-            <h1 class="app-title">Couple Life</h1>
-            <p class="app-subtitle">One shared space for you and your partner &mdash; groceries, chores, notes, reminders, a calendar and a simple budget, plus a few features to keep things fun. Your partner can join any time with a 6-character invite code.</p>
+                <div class="app-card">
+                    <a href="couple-life.html" class="app-link">
+                        <img src="assets/img/portfolio/couplelife/icon.png" alt="Couple Life app icon" class="app-icon" />
+                        <h1 class="app-title">Couple Life</h1>
+                    </a>
+                    <p class="app-subtitle">One shared space for you and your partner &mdash; groceries, chores, notes, reminders, a calendar and a simple budget, plus a few features to keep things fun. Your partner can join any time with a 6-character invite code.</p>
 
-            <div>
-                <span class="coming-soon-badge">Coming Soon</span>
+                    <div>
+                        <span class="coming-soon-badge">Coming Soon</span>
+                    </div>
+                </div>
             </div>
         </main>
     </body>
