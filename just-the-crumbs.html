@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Just The Crumbs - Save, organize, import and share recipes. A Flutter app backed by Firebase. Coming soon to iOS and Android." />
+        <meta name="author" content="Riley Gray" />
+        <title>Just The Crumbs</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PNG9SGHV39"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-PNG9SGHV39');
+        </script>
+        <style>
+            * { box-sizing: border-box; }
+
+            body {
+                margin: 0;
+                background: radial-gradient(circle at 50% 0%, #3a2a14 0%, #2a1f10 45%, #1a130a 100%);
+                color: #f5efe6;
+                font-family: 'Muli', sans-serif;
+                min-height: 100vh;
+            }
+
+            a { text-decoration: none; }
+
+            .back-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.4rem;
+                color: #d9b877;
+                font-size: 0.95rem;
+                padding: 1.5rem 0 0 1.75rem;
+                transition: color 0.2s ease;
+            }
+            .back-link:hover { color: #ffffff; }
+
+            .wrap {
+                max-width: 960px;
+                margin: 0 auto;
+                padding: 1rem 1.5rem 4rem;
+                text-align: center;
+            }
+
+            .app-icon {
+                width: 150px;
+                height: 150px;
+                border-radius: 34px;
+                margin-bottom: 1.5rem;
+                box-shadow: 0 10px 36px rgba(0, 0, 0, 0.55);
+            }
+
+            .app-title {
+                font-family: 'Saira Extra Condensed', sans-serif;
+                font-size: 3.25rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: #ffffff;
+                margin: 0 0 0.4rem;
+                letter-spacing: 0.05rem;
+                line-height: 1;
+            }
+
+            .app-subtitle {
+                font-size: 1.2rem;
+                color: #d9b877;
+                margin: 0 auto 1.75rem;
+                max-width: 600px;
+            }
+
+            .coming-soon-badge {
+                display: inline-block;
+                background-color: #3a2a14;
+                border: 1.5px solid #d9a441;
+                color: #f0c46b;
+                font-family: 'Saira Extra Condensed', sans-serif;
+                font-size: 1.4rem;
+                font-weight: 700;
+                letter-spacing: 0.15rem;
+                text-transform: uppercase;
+                border-radius: 10px;
+                padding: 0.6rem 2rem;
+                margin-bottom: 3.5rem;
+            }
+
+            .section-heading {
+                font-family: 'Saira Extra Condensed', sans-serif;
+                font-size: 2rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.08rem;
+                color: #ffffff;
+                margin: 0 0 1.75rem;
+            }
+
+            /* Screenshot gallery */
+            .shots {
+                display: flex;
+                gap: 1rem;
+                overflow-x: auto;
+                padding: 0.5rem 0.25rem 1.5rem;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+                scrollbar-color: #d9a441 rgba(255, 255, 255, 0.06);
+            }
+            .shots::-webkit-scrollbar {
+                height: 10px;
+            }
+            .shots::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.06);
+                border-radius: 10px;
+            }
+            .shots::-webkit-scrollbar-thumb {
+                background: linear-gradient(90deg, #d9a441, #f0c46b);
+                border-radius: 10px;
+            }
+            .shots::-webkit-scrollbar-thumb:hover {
+                background: linear-gradient(90deg, #e6b455, #f7d488);
+            }
+            .shots img {
+                height: 460px;
+                border-radius: 22px;
+                flex-shrink: 0;
+                scroll-snap-align: center;
+                box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+                border: 1px solid rgba(255, 255, 255, 0.06);
+            }
+
+            .features {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 1.25rem;
+                margin-top: 1rem;
+                text-align: left;
+            }
+            .feature {
+                background: rgba(255, 255, 255, 0.04);
+                border: 1px solid rgba(255, 255, 255, 0.07);
+                border-radius: 16px;
+                padding: 1.5rem;
+            }
+            .feature i { font-size: 1.6rem; color: #f0c46b; margin-bottom: 0.75rem; }
+            .feature h3 {
+                font-size: 1.15rem;
+                font-weight: 800;
+                margin: 0 0 0.4rem;
+                color: #ffffff;
+            }
+            .feature p { margin: 0; color: #d9b877; font-size: 0.95rem; line-height: 1.5; }
+
+            .tech-note {
+                margin: 2.5rem auto 0;
+                max-width: 620px;
+                color: #c4a878;
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+            .block { margin-top: 3.5rem; }
+        </style>
+    </head>
+    <body>
+        <a href="index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to portfolio</a>
+
+        <main class="wrap">
+            <img src="assets/img/portfolio/justthecrumbsmobile/icon.png" alt="Just The Crumbs app icon" class="app-icon" />
+            <h1 class="app-title">Just The Crumbs</h1>
+            <p class="app-subtitle">Save, organize, import and share your favorite recipes &mdash; a fast, serverless recipe book that syncs to your account. Start cooking instantly as a guest, or sign in with Google to keep everything in one place.</p>
+
+            <div>
+                <span class="coming-soon-badge">Coming Soon</span>
+            </div>
+
+            <section class="block">
+                <h2 class="section-heading">Screenshots</h2>
+                <div class="shots">
+                    <img src="assets/img/portfolio/justthecrumbsmobile/1.png" alt="Just The Crumbs screenshot 1" />
+                    <img src="assets/img/portfolio/justthecrumbsmobile/2.png" alt="Just The Crumbs screenshot 2" />
+                    <img src="assets/img/portfolio/justthecrumbsmobile/3.png" alt="Just The Crumbs screenshot 3" />
+                </div>
+            </section>
+
+            <section class="block">
+                <h2 class="section-heading">What to expect</h2>
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-book-open"></i>
+                        <h3>Your recipe book</h3>
+                        <p>Create, edit and delete recipes with ingredients and step-by-step instructions. Search by title, drag to reorder, and tag with colored categories.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-link"></i>
+                        <h3>Import from a URL</h3>
+                        <p>Paste a recipe link &mdash; or a TikTok &mdash; and the app parses the ingredients and steps for you, then opens a pre-filled form to review and save.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-user-check"></i>
+                        <h3>Guest or Google</h3>
+                        <p>Cook right away as a guest, no account needed. Sign in with Google when you're ready and your guest recipes carry over automatically.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-compass"></i>
+                        <h3>Discover</h3>
+                        <p>Browse a public feed of others' recipes, search, hit &ldquo;surprise me&rdquo; for a random pick, and filter by content language.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-share-alt"></i>
+                        <h3>Share by code</h3>
+                        <p>Share any recipe with a short code and a tap-to-open link &mdash; works for private recipes too. Copy any shared recipe into your own collection.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-globe"></i>
+                        <h3>Six languages</h3>
+                        <p>Fully localized in English, Spanish, French, German, Portuguese and Italian, with per-recipe language tags on the Discover feed.</p>
+                    </div>
+                </div>
+            </section>
+
+            <p class="tech-note">Built with Flutter and backed entirely by Firebase (Auth + Cloud Firestore) &mdash; a serverless rewrite of the original web app. Launching soon on both the App Store and Google Play.</p>
+        </main>
+    </body>
+</html>
