@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Couple Life - One shared space for you and your partner: groceries, chores, notes, reminders, calendar and a simple budget, plus a few features to keep things fun. Coming soon to iOS and Android." />
+        <meta name="description" content="Couple Life - One shared space for you and your partner: groceries, chores, notes, reminders, calendar and a simple budget, plus a few features to keep things fun. Available now on Google Play." />
         <meta name="author" content="Riley Gray" />
         <title>Couple Life</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
@@ -75,19 +75,51 @@
                 max-width: 600px;
             }
 
-            .coming-soon-badge {
-                display: inline-block;
-                background-color: #40182f;
-                border: 1.5px solid #d15a8f;
-                color: #ff9dc4;
-                font-family: 'Saira Extra Condensed', sans-serif;
-                font-size: 1.4rem;
-                font-weight: 700;
-                letter-spacing: 0.15rem;
+            .store-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .store-btn {
+                display: flex;
+                align-items: center;
+                gap: 0.85rem;
+                background-color: #000000;
+                color: #ffffff;
+                border-radius: 12px;
+                padding: 0.75rem 1.5rem;
+                width: 220px;
+                border: 1.5px solid #444;
+                transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+            }
+            .store-btn:hover {
+                background-color: #1c1c1c;
+                border-color: #d15a8f;
+                color: #ffffff;
+                transform: translateY(-2px);
+            }
+            .store-btn i { font-size: 2rem; flex-shrink: 0; }
+            .store-btn-text { display: flex; flex-direction: column; text-align: left; }
+            .store-btn-label {
+                font-size: 0.65rem;
                 text-transform: uppercase;
-                border-radius: 10px;
-                padding: 0.6rem 2rem;
-                margin-bottom: 3.5rem;
+                letter-spacing: 0.06rem;
+                color: #aaa;
+                line-height: 1;
+            }
+            .store-btn-name { font-size: 1.1rem; font-weight: 700; line-height: 1.3; }
+
+            .store-note {
+                margin: 0 0 3.5rem;
+                color: #c99bb6;
+                font-size: 0.9rem;
+            }
+
+            @media (min-width: 480px) {
+                .store-buttons { flex-direction: row; justify-content: center; }
             }
 
             .section-heading {
@@ -141,12 +173,19 @@
             <h1 class="app-title">Couple Life</h1>
             <p class="app-subtitle">One shared space for you and your partner &mdash; groceries, chores, notes, reminders, a calendar and a simple budget, plus a few features to keep things fun. Works solo too; your partner can join any time with a 6-character invite code.</p>
 
-            <div>
-                <span class="coming-soon-badge">Coming Soon</span>
+            <div class="store-buttons">
+                <a href="https://play.google.com/store/apps/details?id=com.realgamesrealfun.couplelife" class="store-btn" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-google-play"></i>
+                    <span class="store-btn-text">
+                        <span class="store-btn-label">Get it on</span>
+                        <span class="store-btn-name">Google Play</span>
+                    </span>
+                </a>
             </div>
+            <p class="store-note">Coming soon to the App Store.</p>
 
             <section class="block">
-                <h2 class="section-heading">What to expect</h2>
+                <h2 class="section-heading">What's inside</h2>
                 <div class="features">
                     <div class="feature">
                         <i class="fas fa-user-friends"></i>
@@ -181,7 +220,7 @@
                 </div>
             </section>
 
-            <p class="tech-note">Built with Flutter and Firebase for real-time sync, localized into 6 languages (English, Spanish, French, German, Italian and Portuguese), and launching soon on both the App Store and Google Play.</p>
+            <p class="tech-note">Built with Flutter and Firebase for real-time sync, localized into 6 languages (English, Spanish, French, German, Italian and Portuguese). Available now on Google Play, with an App Store release on the way.</p>
         </main>
     </body>
 </html>
