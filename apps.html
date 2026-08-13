@@ -66,8 +66,7 @@
                 padding: 2.5rem 1.5rem;
             }
             .app-card .app-subtitle { flex-grow: 1; }
-            .app-card .store-buttons,
-            .app-card .coming-soon-badge { margin-bottom: 0; }
+            .app-card .store-buttons { margin-bottom: 0; }
 
             @media (max-width: 640px) {
                 .app-grid { grid-template-columns: 1fr; }
@@ -219,21 +218,6 @@
                 .store-buttons { flex-direction: row; justify-content: center; }
             }
 
-            .coming-soon-badge {
-                display: inline-block;
-                background-color: #000000;
-                color: #ffffff;
-                font-family: 'Saira Extra Condensed', sans-serif;
-                font-size: 1.4rem;
-                font-weight: 700;
-                letter-spacing: 0.15rem;
-                text-transform: uppercase;
-                border-radius: 10px;
-                padding: 0.6rem 2rem;
-                margin-bottom: 3.5rem;
-                
-            }
-
             .mt-2 { margin-top: 2px; }
         </style>
     </head>
@@ -348,6 +332,13 @@
                                 <span class="store-btn-name">App Store</span>
                             </span>
                         </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.realgamesrealfun.zombiesmash" class="store-btn" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-google-play"></i>
+                            <span class="store-btn-text">
+                                <span class="store-btn-label">Get it on</span>
+                                <span class="store-btn-name">Google Play</span>
+                            </span>
+                        </a>
                     </div>
                 </div>
 
@@ -358,8 +349,14 @@
                     </a>
                     <p class="app-subtitle">Save, organize, import and share your favorite recipes &mdash; a fast recipe book that syncs to your account. Start cooking instantly as a guest, or sign in with Google to keep everything in one place.</p>
 
-                    <div>
-                        <span class="coming-soon-badge">Coming Soon</span>
+                    <div class="store-buttons">
+                        <a href="https://play.google.com/store/apps/details?id=com.realgamesrealfun.justthecrumbs" class="store-btn" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-google-play"></i>
+                            <span class="store-btn-text">
+                                <span class="store-btn-label">Get it on</span>
+                                <span class="store-btn-name">Google Play</span>
+                            </span>
+                        </a>
                     </div>
                 </div>
             </div>
