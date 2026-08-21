@@ -134,6 +134,15 @@
                 color: #ffffff;
                 transform: translateY(-2px);
             }
+            .store-btn.soon {
+                opacity: 0.75;
+                cursor: default;
+            }
+            .store-btn.soon:hover {
+                background-color: #000000;
+                border-color: #444;
+                transform: none;
+            }
             .store-btn i { font-size: 2rem; flex-shrink: 0; }
             .store-btn-text { display: flex; flex-direction: column; text-align: left; }
             .store-btn-label {
@@ -357,6 +366,13 @@
                     <p class="app-subtitle">Save, organize, import and share your favorite recipes &mdash; a fast recipe book that syncs to your account. Start cooking instantly as a guest, or sign in with Google to keep everything in one place.</p>
 
                     <div class="store-buttons">
+                        <a href="https://apps.apple.com/us/app/just-the-crumbs-recipes/id6790964398" class="store-btn" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-apple"></i>
+                            <span class="store-btn-text">
+                                <span class="store-btn-label">Download on the</span>
+                                <span class="store-btn-name">App Store</span>
+                            </span>
+                        </a>
                         <a href="https://play.google.com/store/apps/details?id=com.realgamesrealfun.justthecrumbs" class="store-btn" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-google-play"></i>
                             <span class="store-btn-text">
@@ -364,6 +380,31 @@
                                 <span class="store-btn-name">Google Play</span>
                             </span>
                         </a>
+                    </div>
+                </div>
+
+                <div class="app-card">
+                    <a href="mergelings.html" class="app-link">
+                        <img src="assets/img/portfolio/mergelings/icon.png" alt="Mergelings app icon" class="app-icon" />
+                        <h1 class="app-title">Mergelings</h1><small class="store-btn-label mt-2">(Coming Soon)</small>
+                    </a>
+                    <p class="app-subtitle">A cosy merge game about growing a meadow full of little creatures. Drag two matching friends together and they merge into something new &mdash; 150 creatures to find across five meadows, with no way to lose and no timers.</p>
+
+                    <div class="store-buttons">
+                        <span class="store-btn soon">
+                            <i class="fab fa-apple"></i>
+                            <span class="store-btn-text">
+                                <span class="store-btn-label">Coming soon to the</span>
+                                <span class="store-btn-name">App Store</span>
+                            </span>
+                        </span>
+                        <span class="store-btn soon">
+                            <i class="fab fa-google-play"></i>
+                            <span class="store-btn-text">
+                                <span class="store-btn-label">Coming soon to</span>
+                                <span class="store-btn-name">Google Play</span>
+                            </span>
+                        </span>
                     </div>
                 </div>
             </div>
