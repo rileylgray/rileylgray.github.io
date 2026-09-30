@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Stone Skipping - Skip rocks across calm lakes. Tap at the perfect moment, chain perfect skips and flip mid-air across 10 lakes. Coming soon to iOS and Android." />
+        <meta name="author" content="Riley Gray" />
+        <title>Stone Skipping</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PNG9SGHV39"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-PNG9SGHV39');
+        </script>
+        <style>
+            * { box-sizing: border-box; }
+
+            body {
+                margin: 0;
+                background: radial-gradient(circle at 50% 0%, #4a2f5e 0%, #2a1f45 45%, #171327 100%);
+                color: #f0f0f0;
+                font-family: 'Muli', sans-serif;
+                min-height: 100vh;
+            }
+
+            a { text-decoration: none; }
+
+            .back-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.4rem;
+                color: #d6c4de;
+                font-size: 0.95rem;
+                padding: 1.5rem 0 0 1.75rem;
+                transition: color 0.2s ease;
+            }
+            .back-link:hover { color: #ffffff; }
+
+            .wrap {
+                max-width: 960px;
+                margin: 0 auto;
+                padding: 1rem 1.5rem 4rem;
+                text-align: center;
+            }
+
+            .app-icon {
+                width: 150px;
+                height: 150px;
+                border-radius: 34px;
+                margin-bottom: 1.5rem;
+                box-shadow: 0 10px 36px rgba(0, 0, 0, 0.55);
+            }
+
+            .app-title {
+                font-family: 'Saira Extra Condensed', sans-serif;
+                font-size: 3.25rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: #ffffff;
+                margin: 0 0 0.4rem;
+                letter-spacing: 0.05rem;
+                line-height: 1;
+            }
+
+            .app-subtitle {
+                font-size: 1.2rem;
+                color: #d6c4de;
+                margin: 0 auto 1.75rem;
+                max-width: 560px;
+            }
+
+            .soon-pill {
+                display: inline-block;
+                padding: 0.35rem 0.9rem;
+                border-radius: 999px;
+                background: rgba(255, 201, 120, 0.12);
+                border: 1px solid rgba(255, 201, 120, 0.35);
+                color: #ffc978;
+                font-size: 0.72rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                margin-bottom: 1.25rem;
+            }
+
+            .store-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 3.5rem;
+            }
+
+            .store-btn {
+                display: flex;
+                align-items: center;
+                gap: 0.85rem;
+                background-color: #000000;
+                color: #ffffff;
+                border-radius: 12px;
+                padding: 0.75rem 1.5rem;
+                width: 240px;
+                border: 1.5px solid #444;
+            }
+            .store-btn.soon {
+                opacity: 0.75;
+                cursor: default;
+            }
+
+            .store-btn i { font-size: 2rem; flex-shrink: 0; }
+            .store-btn-text { display: flex; flex-direction: column; text-align: left; }
+            .store-btn-label {
+                font-size: 0.65rem;
+                text-transform: uppercase;
+                letter-spacing: 0.06rem;
+                color: #c3a3c9;
+                line-height: 1;
+            }
+            .store-btn-name { font-size: 1.1rem; font-weight: 700; line-height: 1.3; }
+
+            .section-heading {
+                font-family: 'Saira Extra Condensed', sans-serif;
+                font-size: 2rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.08rem;
+                color: #ffffff;
+                margin: 0 0 1.75rem;
+            }
+
+            .shots {
+                display: flex;
+                gap: 1rem;
+                overflow-x: auto;
+                padding: 0.5rem 0.25rem 1.5rem;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+                scrollbar-color: #f6a95c rgba(255, 255, 255, 0.06);
+            }
+            .shots::-webkit-scrollbar {
+                height: 10px;
+            }
+            .shots::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.06);
+                border-radius: 10px;
+            }
+            .shots::-webkit-scrollbar-thumb {
+                background: linear-gradient(90deg, #e0785a, #ffc978);
+                border-radius: 10px;
+            }
+            .shots::-webkit-scrollbar-thumb:hover {
+                background: linear-gradient(90deg, #ec8a6b, #ffd899);
+            }
+            .shots img {
+                height: 460px;
+                border-radius: 22px;
+                flex-shrink: 0;
+                scroll-snap-align: center;
+                box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+                border: 1px solid rgba(255, 255, 255, 0.06);
+            }
+
+            .features {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 1.25rem;
+                margin-top: 1rem;
+                text-align: left;
+            }
+            .feature {
+                background: rgba(255, 255, 255, 0.04);
+                border: 1px solid rgba(255, 255, 255, 0.07);
+                border-radius: 16px;
+                padding: 1.5rem;
+            }
+            .feature i { font-size: 1.6rem; color: #ffc978; margin-bottom: 0.75rem; }
+            .feature h3 {
+                font-size: 1.15rem;
+                font-weight: 800;
+                margin: 0 0 0.4rem;
+                color: #ffffff;
+            }
+            .feature p { margin: 0; color: #d6c4de; font-size: 0.95rem; line-height: 1.5; }
+
+            /* Lakes */
+            .lakes {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+                gap: 1rem;
+                margin-top: 1rem;
+                text-align: left;
+            }
+            .lake {
+                background: rgba(255, 255, 255, 0.04);
+                border: 1px solid rgba(255, 255, 255, 0.07);
+                border-radius: 16px;
+                padding: 1rem 1.15rem;
+                font-weight: 800;
+                color: #ffffff;
+            }
+            .lake .dot {
+                display: inline-block;
+                width: 0.6rem;
+                height: 0.6rem;
+                border-radius: 50%;
+                margin-right: 0.45rem;
+                vertical-align: middle;
+            }
+
+            .block { margin-top: 3.5rem; }
+
+            .note {
+                color: #c3a3c9;
+                font-size: 0.9rem;
+                margin: 2.5rem auto 0;
+                max-width: 640px;
+                line-height: 1.6;
+            }
+
+            @media (min-width: 480px) {
+                .store-buttons { flex-direction: row; justify-content: center; }
+            }
+        </style>
+    </head>
+    <body>
+        <a href="index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to portfolio</a>
+
+        <main class="wrap">
+            <img src="assets/img/portfolio/stoneskipping/icon.png" alt="Stone Skipping app icon" class="app-icon" />
+            <h1 class="app-title">Stone Skipping</h1>
+            <p class="app-subtitle">Skip rocks across calm lakes. Swipe up to throw, tap just as the stone meets its shadow for a Perfect skip, and see how far one good throw can carry.</p>
+
+            <div><span class="soon-pill">Coming soon</span></div>
+
+            <div class="store-buttons">
+                <span class="store-btn soon">
+                    <i class="fab fa-apple"></i>
+                    <span class="store-btn-text">
+                        <span class="store-btn-label">Coming soon to the</span>
+                        <span class="store-btn-name">App Store</span>
+                    </span>
+                </span>
+                <span class="store-btn soon">
+                    <i class="fab fa-google-play"></i>
+                    <span class="store-btn-text">
+                        <span class="store-btn-label">Coming soon to</span>
+                        <span class="store-btn-name">Google Play</span>
+                    </span>
+                </span>
+            </div>
+
+            <section class="block">
+                <h2 class="section-heading">Sneak Peek</h2>
+                <div class="shots">
+                    <img src="assets/img/portfolio/stoneskipping/1_chain.png" alt="Stone Skipping screenshot: chaining perfect skips at sunset" />
+                    <img src="assets/img/portfolio/stoneskipping/2_tricks.png" alt="Stone Skipping screenshot: flipping the stone mid-air" />
+                    <img src="assets/img/portfolio/stoneskipping/3_steer.png" alt="Stone Skipping screenshot: steering around rocks on a moonlit lake" />
+                    <img src="assets/img/portfolio/stoneskipping/4_progress.png" alt="Stone Skipping screenshot: lakes and upgrade store" />
+                </div>
+            </section>
+
+            <section class="block">
+                <h2 class="section-heading">What's inside</h2>
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-hand-pointer"></i>
+                        <h3>Tap for Perfect</h3>
+                        <p>Swipe up to throw, then tap as the stone meets its shadow. Land a Perfect to keep your speed, and chain them together for bigger and bigger combos.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-sync-alt"></i>
+                        <h3>Flips &amp; tricks</h3>
+                        <p>Flip and twist the stone mid-air for bonus coins. Land the trick for a speed boost &mdash; land in the middle of one and you wipe out.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-arrows-alt-h"></i>
+                        <h3>Steer the throw</h3>
+                        <p>Swipe left or right to steer around rocks and logs, and past lily pads and ducks, as the stone races down the lake.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-gem"></i>
+                        <h3>14 stones</h3>
+                        <p>From a plain river pebble to sea glass, jade, moonstone and gold &mdash; plus a few stones that aren't really stones at all.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-arrow-up"></i>
+                        <h3>5 upgrades</h3>
+                        <p>Spend coins on Throwing Arm, Spin, Lift, Focus and Coin Bonus to throw further, keep more speed on every skip and land more Perfects.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-trophy"></i>
+                        <h3>Leaderboards</h3>
+                        <p>Every lake has boards for most skips, longest distance and most tricks in one throw. Names are generated for you, so there's nothing to type.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-wifi"></i>
+                        <h3>Play offline</h3>
+                        <p>The whole game plays with no connection; new bests upload when you're back online. In English, Spanish, French, German, Portuguese and Japanese.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-gift"></i>
+                        <h3>Daily gift</h3>
+                        <p>Free and supported by advertising. Come back each day for a gift, and double it with an optional video if you like &mdash; rewarded videos are never required.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="block">
+                <h2 class="section-heading">Ten lakes to skip</h2>
+                <div class="lakes">
+                    <div class="lake"><span class="dot" style="background:#b7d3ec"></span>Morning Lake</div>
+                    <div class="lake"><span class="dot" style="background:#4e7a58"></span>Pine Tarn</div>
+                    <div class="lake"><span class="dot" style="background:#be557c"></span>Sunset Bay</div>
+                    <div class="lake"><span class="dot" style="background:#e07b3a"></span>Maple Pond</div>
+                    <div class="lake"><span class="dot" style="background:#6cc3ee"></span>Coral Lagoon</div>
+                    <div class="lake"><span class="dot" style="background:#3a4f8f"></span>Moonlit Lake</div>
+                    <div class="lake"><span class="dot" style="background:#e8a6c8"></span>Blossom Pond</div>
+                    <div class="lake"><span class="dot" style="background:#9cc8e8"></span>Glacier Lake</div>
+                    <div class="lake"><span class="dot" style="background:#3fd6a0"></span>Aurora Fjord</div>
+                    <div class="lake"><span class="dot" style="background:#c8452e"></span>Ember Crater</div>
+                </div>
+                <p class="note">Each lake has its own sky, water and obstacles, and three star goals &mdash; skips, distance and a Perfect chain. Earn stars to unlock the next lake.</p>
+            </section>
+        </main>
+    </body>
+</html>
