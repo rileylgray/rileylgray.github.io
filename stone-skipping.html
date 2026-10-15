@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Stone Skipping - Skip rocks across calm lakes. Tap at the perfect moment, chain perfect skips and flip mid-air across 10 lakes. Coming soon to iOS and Android." />
+        <meta name="description" content="Stone Skipping - Skip rocks across calm lakes. Tap at the perfect moment, chain perfect skips and flip mid-air across 10 lakes. Available now on Android, coming soon to iOS." />
         <meta name="author" content="Riley Gray" />
         <title>Stone Skipping</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
@@ -107,6 +107,12 @@
                 padding: 0.75rem 1.5rem;
                 width: 240px;
                 border: 1.5px solid #444;
+                transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+            }
+            .store-btn:not(.soon):hover {
+                background-color: #1c1c1c;
+                border-color: #ffc978;
+                transform: translateY(-2px);
             }
             .store-btn.soon {
                 opacity: 0.75;
@@ -237,7 +243,7 @@
             <h1 class="app-title">Stone Skipping</h1>
             <p class="app-subtitle">Skip rocks across calm lakes. Swipe up to throw, tap just as the stone meets its shadow for a Perfect skip, and see how far one good throw can carry.</p>
 
-            <div><span class="soon-pill">Coming soon</span></div>
+            <div><span class="soon-pill">Out now on Android &middot; iOS coming soon</span></div>
 
             <div class="store-buttons">
                 <span class="store-btn soon">
@@ -247,17 +253,17 @@
                         <span class="store-btn-name">App Store</span>
                     </span>
                 </span>
-                <span class="store-btn soon">
+                <a href="https://play.google.com/store/apps/details?id=com.realgamesrealfun.stone_skipping" class="store-btn" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-google-play"></i>
                     <span class="store-btn-text">
-                        <span class="store-btn-label">Coming soon to</span>
+                        <span class="store-btn-label">Get it on</span>
                         <span class="store-btn-name">Google Play</span>
                     </span>
-                </span>
+                </a>
             </div>
 
             <section class="block">
-                <h2 class="section-heading">Sneak Peek</h2>
+                <h2 class="section-heading">Screenshots</h2>
                 <div class="shots">
                     <img src="assets/img/portfolio/stoneskipping/1_chain.png" alt="Stone Skipping screenshot: chaining perfect skips at sunset" />
                     <img src="assets/img/portfolio/stoneskipping/2_tricks.png" alt="Stone Skipping screenshot: flipping the stone mid-air" />
