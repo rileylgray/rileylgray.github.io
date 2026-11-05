@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Hubbub: Online Party Games - Make a room, share the code and play draw and guess, imposter, two truths and a lie and more with 2 to 12 friends, each on their own phone. Coming soon to iOS and Android." />
+        <meta name="author" content="Riley Gray" />
+        <title>Hubbub</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PNG9SGHV39"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-PNG9SGHV39');
+        </script>
+        <style>
+            * { box-sizing: border-box; }
+
+            body {
+                margin: 0;
+                background: radial-gradient(circle at 50% 0%, #46206b 0%, #27133f 45%, #150b24 100%);
+                color: #f0f0f0;
+                font-family: 'Muli', sans-serif;
+                min-height: 100vh;
+            }
+
+            a { text-decoration: none; }
+
+            .back-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.4rem;
+                color: #d9c6ef;
+                font-size: 0.95rem;
+                padding: 1.5rem 0 0 1.75rem;
+                transition: color 0.2s ease;
+            }
+            .back-link:hover { color: #ffffff; }
+
+            .wrap {
+                max-width: 960px;
+                margin: 0 auto;
+                padding: 1rem 1.5rem 4rem;
+                text-align: center;
+            }
+
+            .app-icon {
+                width: 150px;
+                height: 150px;
+                border-radius: 34px;
+                margin-bottom: 1.5rem;
+                box-shadow: 0 10px 36px rgba(0, 0, 0, 0.55);
+            }
+
+            .app-title {
+                font-family: 'Saira Extra Condensed', sans-serif;
+                font-size: 3.25rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: #ffffff;
+                margin: 0 0 0.4rem;
+                letter-spacing: 0.05rem;
+                line-height: 1;
+            }
+
+            .app-subtitle {
+                font-size: 1.2rem;
+                color: #d9c6ef;
+                margin: 0 auto 1.75rem;
+                max-width: 560px;
+            }
+
+            .soon-pill {
+                display: inline-block;
+                padding: 0.35rem 0.9rem;
+                border-radius: 999px;
+                background: rgba(255, 154, 77, 0.12);
+                border: 1px solid rgba(255, 154, 77, 0.35);
+                color: #ffa463;
+                font-size: 0.72rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                margin-bottom: 1.25rem;
+            }
+
+            .store-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 3.5rem;
+            }
+
+            .store-btn {
+                display: flex;
+                align-items: center;
+                gap: 0.85rem;
+                background-color: #000000;
+                color: #ffffff;
+                border-radius: 12px;
+                padding: 0.75rem 1.5rem;
+                width: 240px;
+                border: 1.5px solid #444;
+                transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+            }
+            .store-btn:not(.soon):hover {
+                background-color: #1c1c1c;
+                border-color: #ff8a3d;
+                transform: translateY(-2px);
+            }
+            .store-btn.soon {
+                opacity: 0.75;
+                cursor: default;
+            }
+
+            .store-btn i { font-size: 2rem; flex-shrink: 0; }
+            .store-btn-text { display: flex; flex-direction: column; text-align: left; }
+            .store-btn-label {
+                font-size: 0.65rem;
+                text-transform: uppercase;
+                letter-spacing: 0.06rem;
+                color: #a98fcb;
+                line-height: 1;
+            }
+            .store-btn-name { font-size: 1.1rem; font-weight: 700; line-height: 1.3; }
+
+            .section-heading {
+                font-family: 'Saira Extra Condensed', sans-serif;
+                font-size: 2rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.08rem;
+                color: #ffffff;
+                margin: 0 0 1.75rem;
+            }
+
+            .shots {
+                display: flex;
+                gap: 1rem;
+                overflow-x: auto;
+                padding: 0.5rem 0.25rem 1.5rem;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+                scrollbar-color: #ff6f6a rgba(255, 255, 255, 0.06);
+            }
+            .shots::-webkit-scrollbar {
+                height: 10px;
+            }
+            .shots::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.06);
+                border-radius: 10px;
+            }
+            .shots::-webkit-scrollbar-thumb {
+                background: linear-gradient(90deg, #ff8a3d, #ff4f8b);
+                border-radius: 10px;
+            }
+            .shots::-webkit-scrollbar-thumb:hover {
+                background: linear-gradient(90deg, #ff9d5c, #ff6a9e);
+            }
+            .shots img {
+                height: 460px;
+                border-radius: 22px;
+                flex-shrink: 0;
+                scroll-snap-align: center;
+                box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+                border: 1px solid rgba(255, 255, 255, 0.06);
+            }
+
+            .features {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 1.25rem;
+                margin-top: 1rem;
+                text-align: left;
+            }
+            .feature {
+                background: rgba(255, 255, 255, 0.04);
+                border: 1px solid rgba(255, 255, 255, 0.07);
+                border-radius: 16px;
+                padding: 1.5rem;
+            }
+            .feature i { font-size: 1.6rem; color: #ff8a3d; margin-bottom: 0.75rem; }
+            .feature h3 {
+                font-size: 1.15rem;
+                font-weight: 800;
+                margin: 0 0 0.4rem;
+                color: #ffffff;
+            }
+            .feature p { margin: 0; color: #d9c6ef; font-size: 0.95rem; line-height: 1.5; }
+
+            /* The games */
+            .games {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+                margin-top: 1rem;
+                text-align: left;
+            }
+            .game {
+                background: rgba(255, 255, 255, 0.04);
+                border: 1px solid rgba(255, 255, 255, 0.07);
+                border-radius: 16px;
+                padding: 1.15rem 1.25rem;
+            }
+            .game h3 {
+                font-size: 1.05rem;
+                font-weight: 800;
+                margin: 0 0 0.3rem;
+                color: #ffffff;
+            }
+            .game .emoji { margin-right: 0.35rem; }
+            .game p { margin: 0; color: #d9c6ef; font-size: 0.9rem; line-height: 1.45; }
+            .game .players {
+                display: inline-block;
+                margin-top: 0.6rem;
+                font-size: 0.7rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: #ffa463;
+            }
+
+            /* How a room works */
+            .steps {
+                list-style: none;
+                counter-reset: step;
+                padding: 0;
+                margin: 1rem auto 0;
+                max-width: 640px;
+                text-align: left;
+            }
+            .steps li {
+                counter-increment: step;
+                position: relative;
+                padding: 0.9rem 1.1rem 0.9rem 3.6rem;
+                margin-bottom: 0.75rem;
+                background: rgba(255, 255, 255, 0.04);
+                border: 1px solid rgba(255, 255, 255, 0.07);
+                border-radius: 14px;
+                color: #d9c6ef;
+                line-height: 1.5;
+            }
+            .steps li::before {
+                content: counter(step);
+                position: absolute;
+                left: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 1.85rem;
+                height: 1.85rem;
+                border-radius: 50%;
+                background: linear-gradient(135deg, #ff8a3d, #ff4f8b);
+                color: #ffffff;
+                font-weight: 800;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .steps strong { color: #ffffff; }
+
+            .block { margin-top: 3.5rem; }
+
+            .note {
+                color: #a98fcb;
+                font-size: 0.9rem;
+                margin: 2.5rem auto 0;
+                max-width: 640px;
+                line-height: 1.6;
+            }
+            .note a { color: #ffa463; }
+            .note a:hover { color: #ffffff; }
+
+            @media (min-width: 480px) {
+                .store-buttons { flex-direction: row; justify-content: center; }
+            }
+        </style>
+    </head>
+    <body>
+        <a href="apps.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to apps</a>
+
+        <main class="wrap">
+            <img src="assets/img/portfolio/hubbub/icon.png" alt="Hubbub app icon" class="app-icon" />
+            <h1 class="app-title">Hubbub</h1>
+            <p class="app-subtitle">Game night, anywhere. Make a room, share the code, and play online party games with 2 to 12 friends &mdash; everyone on their own phone. Draw it, guess it, fib about it, then laugh about it.</p>
+
+            <div><span class="soon-pill">Coming soon to iOS &amp; Android</span></div>
+
+            <div class="store-buttons">
+                <span class="store-btn soon">
+                    <i class="fab fa-apple"></i>
+                    <span class="store-btn-text">
+                        <span class="store-btn-label">Coming soon to the</span>
+                        <span class="store-btn-name">App Store</span>
+                    </span>
+                </span>
+                <span class="store-btn soon">
+                    <i class="fab fa-google-play"></i>
+                    <span class="store-btn-text">
+                        <span class="store-btn-label">Coming soon to</span>
+                        <span class="store-btn-name">Google Play</span>
+                    </span>
+                </span>
+            </div>
+
+            <section class="block">
+                <h2 class="section-heading">Sneak Peek</h2>
+                <div class="shots">
+                    <img src="assets/img/portfolio/hubbub/01_play_together.jpg" alt="Hubbub screenshot: a room with its six-digit code and players getting ready" />
+                    <img src="assets/img/portfolio/hubbub/02_draw_and_guess.jpg" alt="Hubbub screenshot: Sketch Sprint, one player draws while the others guess" />
+                    <img src="assets/img/portfolio/hubbub/03_doodle_telephone.jpg" alt="Hubbub screenshot: replaying a Doodle Telephone chain" />
+                    <img src="assets/img/portfolio/hubbub/04_imposter_word.jpg" alt="Hubbub screenshot: voting out the imposter in Imposter Word" />
+                    <img src="assets/img/portfolio/hubbub/05_two_truths.jpg" alt="Hubbub screenshot: spotting the lie in Two Truths and a Lie" />
+                    <img src="assets/img/portfolio/hubbub/06_pick_or_vote.jpg" alt="Hubbub screenshot: the room votes on the next game" />
+                    <img src="assets/img/portfolio/hubbub/07_quick_start.jpg" alt="Hubbub screenshot: pick a name and an avatar, then create or join a room" />
+                </div>
+            </section>
+
+            <section class="block">
+                <h2 class="section-heading">Eight party games</h2>
+                <div class="games">
+                    <div class="game">
+                        <h3><span class="emoji">🎨</span>Sketch Sprint</h3>
+                        <p>One player draws, everyone else races to guess the word. Letter hints show up as time runs low.</p>
+                        <span class="players">2+ players</span>
+                    </div>
+                    <div class="game">
+                        <h3><span class="emoji">📞</span>Doodle Telephone</h3>
+                        <p>Write, draw, guess, draw again&hellip; then replay every chain and watch it go hilariously wrong.</p>
+                        <span class="players">3+ players</span>
+                    </div>
+                    <div class="game">
+                        <h3><span class="emoji">🤥</span>Two Truths &amp; a Lie</h3>
+                        <p>Two true facts and one convincing lie each. Fool your friends and find out who really knows you.</p>
+                        <span class="players">2+ players</span>
+                    </div>
+                    <div class="game">
+                        <h3><span class="emoji">📖</span>Dictionary Bluff</h3>
+                        <p>A rare but real word appears. Write a fake meaning that sounds real, then spot the true one.</p>
+                        <span class="players">3+ players</span>
+                    </div>
+                    <div class="game">
+                        <h3><span class="emoji">🕵️</span>Imposter Word</h3>
+                        <p>Everyone gets the same secret word except one player, who doesn't even know it. Give clues, then vote.</p>
+                        <span class="players">3+ players</span>
+                    </div>
+                    <div class="game">
+                        <h3><span class="emoji">🧠</span>Great Minds</h3>
+                        <p>Everyone answers the same prompt and scores for matching the others. Don't be clever, be obvious!</p>
+                        <span class="players">2+ players</span>
+                    </div>
+                    <div class="game">
+                        <h3><span class="emoji">👉</span>Most Likely To</h3>
+                        <p>&ldquo;Who is most likely to cry at a movie?&rdquo; Vote on a friend and score for siding with the crowd.</p>
+                        <span class="players">3+ players</span>
+                    </div>
+                    <div class="game">
+                        <h3><span class="emoji">🔮</span>Who Knows Who</h3>
+                        <p>One player answers a question about themself and everyone else guesses what they said.</p>
+                        <span class="players">2+ players</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="block">
+                <h2 class="section-heading">What's inside</h2>
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Everyone on their own phone</h3>
+                        <p>No TV, console or extra screen. Play in the same room or miles apart on a video call &mdash; iPhone and Android players join the same rooms.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-user-check"></i>
+                        <h3>No sign-up</h3>
+                        <p>No account needed. Pick a name and an avatar, then create or join a room with a six-digit code.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-vote-yea"></i>
+                        <h3>Host picks or everyone votes</h3>
+                        <p>The host chooses who decides the next game and how many people can join, from 2 up to 12. Points carry over from game to game.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-robot"></i>
+                        <h3>Bots fill the seats</h3>
+                        <p>Short on players? Bots jump in so small groups can play every game. Practice with Bots runs a whole room on one phone, offline.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-share-alt"></i>
+                        <h3>Share the code</h3>
+                        <p>Send the room code and the download links by text or any chat app in one tap.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Kept friendly</h3>
+                        <p>A word filter on names and answers, house rules on first launch. Tap a player to report them, and hosts can remove players.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="block">
+                <h2 class="section-heading">How a room works</h2>
+                <ol class="steps">
+                    <li><strong>The host makes a room</strong> and picks the settings: host picks or group vote, max players, and whether bots fill empty seats.</li>
+                    <li><strong>Friends join</strong> with the six-digit room code.</li>
+                    <li><strong>Everyone taps Ready.</strong> The host can add or remove bots.</li>
+                    <li><strong>Pick the next game.</strong> The host chooses, or the room has 30 seconds to vote.</li>
+                    <li><strong>Play, laugh, rematch.</strong> Scores add up across games, then it's back to the list.</li>
+                </ol>
+                <p class="note">Online rooms need an internet connection, and each player needs the app on their own device. Questions, ideas or need a hand? Email <a href="mailto:realgamesrealfun@outlook.com">realgamesrealfun@outlook.com</a>.</p>
+            </section>
+        </main>
+    </body>
+</html>

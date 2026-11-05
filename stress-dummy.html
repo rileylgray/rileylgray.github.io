@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Stress Dummy: Ragdoll Smash - A physics ragdoll sandbox for blowing off steam. Fling, punch, shoot, freeze and blow up the Dummy with 46 crazy weapons. Coming soon to iOS and Android." />
+        <meta name="author" content="Riley Gray" />
+        <title>Stress Dummy</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PNG9SGHV39"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-PNG9SGHV39');
+        </script>
+        <style>
+            * { box-sizing: border-box; }
+
+            body {
+                margin: 0;
+                background: radial-gradient(circle at 50% 0%, #1d3a66 0%, #15223d 45%, #0d1322 100%);
+                color: #f0f0f0;
+                font-family: 'Muli', sans-serif;
+                min-height: 100vh;
+            }
+
+            a { text-decoration: none; }
+
+            .back-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.4rem;
+                color: #bcd0ee;
+                font-size: 0.95rem;
+                padding: 1.5rem 0 0 1.75rem;
+                transition: color 0.2s ease;
+            }
+            .back-link:hover { color: #ffffff; }
+
+            .wrap {
+                max-width: 960px;
+                margin: 0 auto;
+                padding: 1rem 1.5rem 4rem;
+                text-align: center;
+            }
+
+            .app-icon {
+                width: 150px;
+                height: 150px;
+                border-radius: 34px;
+                margin-bottom: 1.5rem;
+                box-shadow: 0 10px 36px rgba(0, 0, 0, 0.55);
+            }
+
+            .app-title {
+                font-family: 'Saira Extra Condensed', sans-serif;
+                font-size: 3.25rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: #ffffff;
+                margin: 0 0 0.4rem;
+                letter-spacing: 0.05rem;
+                line-height: 1;
+            }
+
+            .app-subtitle {
+                font-size: 1.2rem;
+                color: #bcd0ee;
+                margin: 0 auto 1.75rem;
+                max-width: 560px;
+            }
+
+            .soon-pill {
+                display: inline-block;
+                padding: 0.35rem 0.9rem;
+                border-radius: 999px;
+                background: rgba(255, 199, 44, 0.12);
+                border: 1px solid rgba(255, 199, 44, 0.35);
+                color: #ffc72c;
+                font-size: 0.72rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                margin-bottom: 1.25rem;
+            }
+
+            .store-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 3.5rem;
+            }
+
+            .store-btn {
+                display: flex;
+                align-items: center;
+                gap: 0.85rem;
+                background-color: #000000;
+                color: #ffffff;
+                border-radius: 12px;
+                padding: 0.75rem 1.5rem;
+                width: 240px;
+                border: 1.5px solid #444;
+                transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+            }
+            .store-btn:not(.soon):hover {
+                background-color: #1c1c1c;
+                border-color: #ffc72c;
+                transform: translateY(-2px);
+            }
+            .store-btn.soon {
+                opacity: 0.75;
+                cursor: default;
+            }
+
+            .store-btn i { font-size: 2rem; flex-shrink: 0; }
+            .store-btn-text { display: flex; flex-direction: column; text-align: left; }
+            .store-btn-label {
+                font-size: 0.65rem;
+                text-transform: uppercase;
+                letter-spacing: 0.06rem;
+                color: #8ea6cc;
+                line-height: 1;
+            }
+            .store-btn-name { font-size: 1.1rem; font-weight: 700; line-height: 1.3; }
+
+            .section-heading {
+                font-family: 'Saira Extra Condensed', sans-serif;
+                font-size: 2rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.08rem;
+                color: #ffffff;
+                margin: 0 0 1.75rem;
+            }
+
+            .shots {
+                display: flex;
+                gap: 1rem;
+                overflow-x: auto;
+                padding: 0.5rem 0.25rem 1.5rem;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+                scrollbar-color: #ffc72c rgba(255, 255, 255, 0.06);
+            }
+            .shots::-webkit-scrollbar {
+                height: 10px;
+            }
+            .shots::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.06);
+                border-radius: 10px;
+            }
+            .shots::-webkit-scrollbar-thumb {
+                background: linear-gradient(90deg, #2f8fe8, #ffc72c);
+                border-radius: 10px;
+            }
+            .shots::-webkit-scrollbar-thumb:hover {
+                background: linear-gradient(90deg, #4aa2f0, #ffd65e);
+            }
+            .shots img {
+                height: 460px;
+                border-radius: 22px;
+                flex-shrink: 0;
+                scroll-snap-align: center;
+                box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+                border: 1px solid rgba(255, 255, 255, 0.06);
+            }
+
+            .features {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 1.25rem;
+                margin-top: 1rem;
+                text-align: left;
+            }
+            .feature {
+                background: rgba(255, 255, 255, 0.04);
+                border: 1px solid rgba(255, 255, 255, 0.07);
+                border-radius: 16px;
+                padding: 1.5rem;
+            }
+            .feature i { font-size: 1.6rem; color: #ffc72c; margin-bottom: 0.75rem; }
+            .feature h3 {
+                font-size: 1.15rem;
+                font-weight: 800;
+                margin: 0 0 0.4rem;
+                color: #ffffff;
+            }
+            .feature p { margin: 0; color: #bcd0ee; font-size: 0.95rem; line-height: 1.5; }
+
+            /* Weapon groups */
+            .arsenal {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+                margin-top: 1rem;
+                text-align: left;
+            }
+            .kit {
+                background: rgba(255, 255, 255, 0.04);
+                border: 1px solid rgba(255, 255, 255, 0.07);
+                border-radius: 16px;
+                padding: 1.15rem 1.25rem;
+            }
+            .kit h3 {
+                font-size: 1.05rem;
+                font-weight: 800;
+                margin: 0 0 0.3rem;
+                color: #ffffff;
+            }
+            .kit h3 i, .kit h3 svg { margin-right: 0.45rem; }
+            .kit p { margin: 0; color: #bcd0ee; font-size: 0.9rem; line-height: 1.45; }
+
+            .block { margin-top: 3.5rem; }
+
+            .note {
+                color: #8ea6cc;
+                font-size: 0.9rem;
+                margin: 2.5rem auto 0;
+                max-width: 640px;
+                line-height: 1.6;
+            }
+
+            @media (min-width: 480px) {
+                .store-buttons { flex-direction: row; justify-content: center; }
+            }
+
+            /* Landscape screenshots: one per screen on phones */
+            @media (max-width: 640px) {
+                .shots img { height: auto; width: 86vw; }
+            }
+        </style>
+    </head>
+    <body>
+        <a href="apps.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to apps</a>
+
+        <main class="wrap">
+            <img src="assets/img/portfolio/stressdummy/icon.png" alt="Stress Dummy app icon" class="app-icon" />
+            <h1 class="app-title">Stress Dummy</h1>
+            <p class="app-subtitle">Had a rough day? Take it out on the Dummy. Fling it, punch it, shoot it, freeze it and blow it sky high &mdash; every hit is pure physics, so no two smashes are the same.</p>
+
+            <div><span class="soon-pill">Coming soon to iOS &amp; Android</span></div>
+
+            <div class="store-buttons">
+                <span class="store-btn soon">
+                    <i class="fab fa-apple"></i>
+                    <span class="store-btn-text">
+                        <span class="store-btn-label">Coming soon to the</span>
+                        <span class="store-btn-name">App Store</span>
+                    </span>
+                </span>
+                <span class="store-btn soon">
+                    <i class="fab fa-google-play"></i>
+                    <span class="store-btn-text">
+                        <span class="store-btn-label">Coming soon to</span>
+                        <span class="store-btn-name">Google Play</span>
+                    </span>
+                </span>
+            </div>
+
+            <section class="block">
+                <h2 class="section-heading">Sneak Peek</h2>
+                <div class="shots">
+                    <img src="assets/img/portfolio/stressdummy/1_smash.jpg" alt="Stress Dummy screenshot: smash your stress away" />
+                    <img src="assets/img/portfolio/stressdummy/2_weapons.jpg" alt="Stress Dummy screenshot: the weapon picker" />
+                    <img src="assets/img/portfolio/stressdummy/3_rip.jpg" alt="Stress Dummy screenshot: rip off its limbs with two fingers" />
+                    <img src="assets/img/portfolio/stressdummy/4_animals.jpg" alt="Stress Dummy screenshot: a shark bursts up out of the floor" />
+                    <img src="assets/img/portfolio/stressdummy/5_pinned.jpg" alt="Stress Dummy screenshot: the Dummy nailed to the wall" />
+                    <img src="assets/img/portfolio/stressdummy/6_boom.jpg" alt="Stress Dummy screenshot: blow it sky high" />
+                    <img src="assets/img/portfolio/stressdummy/7_powers.jpg" alt="Stress Dummy screenshot: zap it with lightning in the Moon Lab" />
+                    <img src="assets/img/portfolio/stressdummy/8_style.jpg" alt="Stress Dummy screenshot: dress up your dummy in the wardrobe" />
+                </div>
+            </section>
+
+            <section class="block">
+                <h2 class="section-heading">What's inside</h2>
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-hand-paper"></i>
+                        <h3>Grab, fling &amp; rip</h3>
+                        <p>Drag any body part and hurl the Dummy across the room. Grab with two fingers and pull, and arms, legs and even the head come right off.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-bomb"></i>
+                        <h3>46 crazy weapons</h3>
+                        <p>Bats, katanas and chainsaws, a minigun and a nail gun, dynamite and a nuke, falling pianos, a black hole, a charging bull and a shark &mdash; each one drops into the room to pick up.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-meh-rolling-eyes"></i>
+                        <h3>A dummy with feelings</h3>
+                        <p>It blinks, flinches, sees stars, sweats when you pick something scary and laughs when you leave it alone. Set it on fire and it runs round the room screaming.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-user-friends"></i>
+                        <h3>Two's company</h3>
+                        <p>Unlock a second Dummy and they bump, shove and laugh at each other, throw loose limbs back and forth and poke a fallen friend back to its feet.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-tshirt"></i>
+                        <h3>Dress it up</h3>
+                        <p>Crash Dummy, Human, Zombie, Robot or Alien, with hair, glasses, suits, hoodies and clown shoes in any colour. Dress it as your boss in one tap.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-warehouse"></i>
+                        <h3>Four rooms</h3>
+                        <p>Wreck the Garage, the Office, the Backyard or the Moon Lab, where low gravity sends everything floating.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-coins"></i>
+                        <h3>Earn as you smash</h3>
+                        <p>Every hit earns coins for new weapons, outfits and rooms. Chain combos, fill the stress meter for a payout and watch a slow-mo replay of every knockout.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-wifi"></i>
+                        <h3>Play offline</h3>
+                        <p>No account needed and it plays fully offline on phones and tablets. Vibration, screen shake and damage numbers can all be switched off. Free, with optional ads.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="block">
+                <h2 class="section-heading">Pick your weapon</h2>
+                <div class="arsenal">
+                    <div class="kit">
+                        <h3><i class="fas fa-fist-raised"></i>Hands</h3>
+                        <p>Boxing glove, bat, sledgehammer, katana, chainsaw, frying pan, a big wet fish, golf club, axe and mace.</p>
+                    </div>
+                    <div class="kit">
+                        <h3><i class="fas fa-crosshairs"></i>Guns</h3>
+                        <p>Pistol, shotgun, minigun, laser, nail gun, crossbow, a bow you draw with two fingers, paintball, sniper and grenade launcher.</p>
+                    </div>
+                    <div class="kit">
+                        <h3><i class="fas fa-bomb"></i>Explosives</h3>
+                        <p>Grenades, dynamite, a rocket launcher, sticky C4, fireworks, a cluster bomb and the mighty NUKE.</p>
+                    </div>
+                    <div class="kit">
+                        <h3><i class="fas fa-weight-hanging"></i>Drops</h3>
+                        <p>Bowling balls, anvils from the sky, throwing knives, a runaway saw blade and a piano.</p>
+                    </div>
+                    <div class="kit">
+                        <h3><i class="fas fa-bolt"></i>Powers</h3>
+                        <p>Lightning, a flamethrower, a freeze ray, a black hole, a meteor and a tornado that chases it round the room.</p>
+                    </div>
+                    <div class="kit">
+                        <h3><i class="fas fa-fish"></i>Animals</h3>
+                        <p>A swarm of bees, a school of piranhas, a charging bull and a shark that bursts up out of the floor.</p>
+                    </div>
+                    <div class="kit">
+                        <h3><i class="fas fa-cogs"></i>Traps</h3>
+                        <p>Crank them by hand: a stretcher, a vise that squashes it flat and an electric chair.</p>
+                    </div>
+                </div>
+                <p class="note">Cartoon violence, made for teens and adults. The Dummy spills fluffy stuffing to start with &mdash; switch blood on in Settings if you want the splatter.</p>
+            </section>
+        </main>
+    </body>
+</html>
