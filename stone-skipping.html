@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Stone Skipping - Skip rocks across calm lakes. Tap at the perfect moment, chain perfect skips and flip mid-air across 10 lakes. Available now on Android, coming soon to iOS." />
+        <meta name="description" content="Stone Skipping - Skip rocks across calm lakes. Tap at the perfect moment, chain perfect skips and flip mid-air across 10 lakes. Available now on the App Store and Google Play." />
         <meta name="author" content="Riley Gray" />
         <title>Stone Skipping</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
@@ -75,20 +75,6 @@
                 max-width: 560px;
             }
 
-            .soon-pill {
-                display: inline-block;
-                padding: 0.35rem 0.9rem;
-                border-radius: 999px;
-                background: rgba(255, 201, 120, 0.12);
-                border: 1px solid rgba(255, 201, 120, 0.35);
-                color: #ffc978;
-                font-size: 0.72rem;
-                font-weight: 800;
-                text-transform: uppercase;
-                letter-spacing: 0.12em;
-                margin-bottom: 1.25rem;
-            }
-
             .store-buttons {
                 display: flex;
                 flex-direction: column;
@@ -109,14 +95,10 @@
                 border: 1.5px solid #444;
                 transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
             }
-            .store-btn:not(.soon):hover {
+            .store-btn:hover {
                 background-color: #1c1c1c;
                 border-color: #ffc978;
                 transform: translateY(-2px);
-            }
-            .store-btn.soon {
-                opacity: 0.75;
-                cursor: default;
             }
 
             .store-btn i { font-size: 2rem; flex-shrink: 0; }
@@ -262,16 +244,14 @@
             <h1 class="app-title">Stone Skipping</h1>
             <p class="app-subtitle">Skip rocks across calm lakes. Swipe up to throw, tap just as the stone meets its shadow for a Perfect skip, and see how far one good throw can carry.</p>
 
-            <div><span class="soon-pill">Out now on Android &middot; iOS coming soon</span></div>
-
             <div class="store-buttons">
-                <span class="store-btn soon">
+                <a href="https://apps.apple.com/us/app/stone-skipping-skip-rocks/id6816748235" class="store-btn" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-apple"></i>
                     <span class="store-btn-text">
-                        <span class="store-btn-label">Coming soon to the</span>
+                        <span class="store-btn-label">Download on the</span>
                         <span class="store-btn-name">App Store</span>
                     </span>
-                </span>
+                </a>
                 <a href="https://play.google.com/store/apps/details?id=com.realgamesrealfun.stone_skipping" class="store-btn" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-google-play"></i>
                     <span class="store-btn-text">
