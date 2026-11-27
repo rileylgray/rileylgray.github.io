@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Puzzle Race: 1v1 Puzzle Games - Race a friend on the exact same puzzle in real time. Ten puzzle types, private rooms, daily challenges and offline solo practice. Coming soon to iOS and Android." />
+        <meta name="author" content="Riley Gray" />
+        <title>Puzzle Race</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PNG9SGHV39"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-PNG9SGHV39');
+        </script>
+        <style>
+            * { box-sizing: border-box; }
+
+            body {
+                margin: 0;
+                background: radial-gradient(circle at 50% 0%, #4b3a9e 0%, #2a1f63 40%, #140f30 100%);
+                color: #f0f0f0;
+                font-family: 'Muli', sans-serif;
+                min-height: 100vh;
+            }
+
+            a { text-decoration: none; }
+
+            .back-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.4rem;
+                color: #d6d0ff;
+                font-size: 0.95rem;
+                padding: 1.5rem 0 0 1.75rem;
+                transition: color 0.2s ease;
+            }
+            .back-link:hover { color: #ffffff; }
+
+            .wrap {
+                max-width: 960px;
+                margin: 0 auto;
+                padding: 1rem 1.5rem 4rem;
+                text-align: center;
+            }
+
+            .app-icon {
+                width: 150px;
+                height: 150px;
+                border-radius: 34px;
+                margin-bottom: 1.5rem;
+                box-shadow: 0 10px 36px rgba(0, 0, 0, 0.55);
+            }
+
+            .app-title {
+                font-family: 'Saira Extra Condensed', sans-serif;
+                font-size: 3.25rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: #ffffff;
+                margin: 0 0 0.4rem;
+                letter-spacing: 0.05rem;
+                line-height: 1;
+            }
+
+            .app-subtitle {
+                font-size: 1.2rem;
+                color: #d6d0ff;
+                margin: 0 auto 1.75rem;
+                max-width: 580px;
+            }
+
+            .soon-pill {
+                display: inline-block;
+                padding: 0.35rem 0.9rem;
+                border-radius: 999px;
+                background: rgba(255, 79, 154, 0.14);
+                border: 1px solid rgba(255, 79, 154, 0.45);
+                color: #ff7ab6;
+                font-size: 0.72rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                margin-bottom: 1.25rem;
+            }
+
+            .store-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 3.5rem;
+            }
+
+            .store-btn {
+                display: flex;
+                align-items: center;
+                gap: 0.85rem;
+                background-color: #000000;
+                color: #ffffff;
+                border-radius: 12px;
+                padding: 0.75rem 1.5rem;
+                width: 240px;
+                border: 1.5px solid #444;
+            }
+            .store-btn.soon {
+                opacity: 0.75;
+                cursor: default;
+            }
+
+            .store-btn i { font-size: 2rem; flex-shrink: 0; }
+            .store-btn-text { display: flex; flex-direction: column; text-align: left; }
+            .store-btn-label {
+                font-size: 0.65rem;
+                text-transform: uppercase;
+                letter-spacing: 0.06rem;
+                color: #a99fe0;
+                line-height: 1;
+            }
+            .store-btn-name { font-size: 1.1rem; font-weight: 700; line-height: 1.3; }
+
+            .section-heading {
+                font-family: 'Saira Extra Condensed', sans-serif;
+                font-size: 2rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.08rem;
+                color: #ffffff;
+                margin: 0 0 1.75rem;
+            }
+
+            .shots {
+                display: flex;
+                gap: 1rem;
+                overflow-x: auto;
+                padding: 0.5rem 0.25rem 1.5rem;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+                scrollbar-color: #ff4f9a rgba(255, 255, 255, 0.06);
+            }
+            .shots::-webkit-scrollbar { height: 10px; }
+            .shots::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.06);
+                border-radius: 10px;
+            }
+            .shots::-webkit-scrollbar-thumb {
+                background: linear-gradient(90deg, #ff4f9a, #ffc83d);
+                border-radius: 10px;
+            }
+            .shots img {
+                height: 380px;
+                max-width: 88vw;
+                object-fit: cover;
+                border-radius: 18px;
+                flex-shrink: 0;
+                scroll-snap-align: center;
+                box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+                border: 1px solid rgba(255, 255, 255, 0.06);
+            }
+
+            .features {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 1.25rem;
+                margin-top: 1rem;
+                text-align: left;
+            }
+            .feature {
+                background: rgba(255, 255, 255, 0.04);
+                border: 1px solid rgba(255, 255, 255, 0.07);
+                border-radius: 16px;
+                padding: 1.5rem;
+            }
+            .feature i { font-size: 1.6rem; color: #ff4f9a; margin-bottom: 0.75rem; }
+            .feature h3 {
+                font-size: 1.15rem;
+                font-weight: 800;
+                margin: 0 0 0.4rem;
+                color: #ffffff;
+            }
+            .feature p { margin: 0; color: #d6d0ff; font-size: 0.95rem; line-height: 1.5; }
+
+            .modes {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                gap: 1.25rem;
+                margin-top: 1rem;
+                text-align: left;
+            }
+            .mode {
+                border-radius: 18px;
+                padding: 1.6rem 1.6rem 1.4rem;
+                background: linear-gradient(160deg, rgba(255, 79, 154, 0.22), rgba(255, 255, 255, 0.03));
+                border: 1px solid rgba(255, 122, 182, 0.28);
+            }
+            .mode.classic {
+                background: linear-gradient(160deg, rgba(61, 160, 255, 0.22), rgba(255, 255, 255, 0.03));
+                border-color: rgba(120, 180, 255, 0.3);
+            }
+            .mode h3 {
+                font-family: 'Saira Extra Condensed', sans-serif;
+                font-size: 1.7rem;
+                text-transform: uppercase;
+                letter-spacing: 0.05rem;
+                margin: 0 0 0.35rem;
+                color: #ffffff;
+            }
+            .mode p { margin: 0; color: #e4e0ff; line-height: 1.55; }
+            .mode .tag {
+                display: inline-block;
+                margin-top: 0.8rem;
+                font-size: 0.7rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: #ffc83d;
+            }
+
+            .worlds {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.6rem;
+                margin: 0 auto;
+                max-width: 720px;
+            }
+            .worlds span {
+                padding: 0.5rem 0.95rem;
+                border-radius: 999px;
+                background: rgba(255, 255, 255, 0.06);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                color: #efecff;
+                font-size: 0.92rem;
+                font-weight: 800;
+            }
+
+            .block { margin-top: 3.5rem; }
+
+            .note {
+                color: #a99fe0;
+                font-size: 0.9rem;
+                margin: 2.5rem auto 0;
+                max-width: 640px;
+                line-height: 1.6;
+            }
+            .note a { color: #ff7ab6; }
+            .note a:hover { color: #ffffff; }
+
+            @media (min-width: 480px) {
+                .store-buttons { flex-direction: row; justify-content: center; }
+            }
+            @media (max-width: 560px) {
+                .shots img { height: auto; width: 86vw; }
+                .back-link { padding-left: 1rem; }
+                .wrap { padding-left: 1rem; padding-right: 1rem; }
+            }
+        </style>
+    </head>
+    <body>
+        <a href="apps.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to apps</a>
+
+        <main class="wrap">
+            <img src="assets/img/portfolio/puzzlerace/icon.png" alt="Puzzle Race app icon" class="app-icon" />
+            <h1 class="app-title">Puzzle Race</h1>
+            <p class="app-subtitle">Same puzzle. Same moment. Who's faster? Race a friend on the exact same puzzle, watch their progress bar fill in real time, and think fast to claim the win.</p>
+
+            <div><span class="soon-pill">Coming soon to iOS &amp; Android</span></div>
+
+            <div class="store-buttons">
+                <span class="store-btn soon">
+                    <i class="fab fa-apple"></i>
+                    <span class="store-btn-text">
+                        <span class="store-btn-label">Coming soon to the</span>
+                        <span class="store-btn-name">App Store</span>
+                    </span>
+                </span>
+                <span class="store-btn soon">
+                    <i class="fab fa-google-play"></i>
+                    <span class="store-btn-text">
+                        <span class="store-btn-label">Coming soon to</span>
+                        <span class="store-btn-name">Google Play</span>
+                    </span>
+                </span>
+            </div>
+
+            <section class="block">
+                <h2 class="section-heading">Sneak Peek</h2>
+                <div class="shots">
+                    <img src="assets/img/portfolio/puzzlerace/1_live_race.jpg" alt="Puzzle Race screenshot: two phones racing on the same color sort puzzle" />
+                    <img src="assets/img/portfolio/puzzlerace/2_four_games.jpg" alt="Puzzle Race screenshot: choosing a puzzle in solo practice" />
+                    <img src="assets/img/portfolio/puzzlerace/3_numbers.jpg" alt="Puzzle Race screenshot: merging matching number tiles to reach the target" />
+                    <img src="assets/img/portfolio/puzzlerace/4_pathfinder.jpg" alt="Puzzle Race screenshot: finding a route through the maze to the flag" />
+                    <img src="assets/img/portfolio/puzzlerace/5_blocks.jpg" alt="Puzzle Race screenshot: dropping blocks to clear lines" />
+                    <img src="assets/img/portfolio/puzzlerace/6_private_rooms.jpg" alt="Puzzle Race screenshot: a private room with a six-character code" />
+                    <img src="assets/img/portfolio/puzzlerace/7_daily.jpg" alt="Puzzle Race screenshot: the daily challenges list" />
+                    <img src="assets/img/portfolio/puzzlerace/8_solo.jpg" alt="Puzzle Race screenshot: the home screen" />
+                </div>
+            </section>
+
+            <section class="block">
+                <h2 class="section-heading">How a race works</h2>
+                <div class="modes">
+                    <div class="mode">
+                        <h3>Race a friend</h3>
+                        <p>Create a private room, share the six-character code and pick a puzzle. You both get the exact same puzzle at the exact same moment &mdash; best score wins.</p>
+                        <span class="tag">Live 1v1</span>
+                    </div>
+                    <div class="mode classic">
+                        <h3>Play solo</h3>
+                        <p>Practice every puzzle on your own, beat your best times and take on a fresh set of daily challenges for bonus coins &mdash; even offline.</p>
+                        <span class="tag">Any time</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="block">
+                <h2 class="section-heading">What's inside</h2>
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <h3>Live progress</h3>
+                        <p>Watch your rival's progress bar fill up as they play. Every second counts.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-key"></i>
+                        <h3>Private rooms</h3>
+                        <p>Share a six-character room code and race your friends head-to-head. Rematch with one tap.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-calendar-day"></i>
+                        <h3>Daily challenges</h3>
+                        <p>New puzzles every day, with bonus coins for finishing the set.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-double"></i>
+                        <h3>Always solvable</h3>
+                        <p>Every puzzle is generated fresh and checked by a solver, so every race is fair.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Fair play</h3>
+                        <p>Results are verified on the server by replaying every move, so wins are earned, not hacked.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-palette"></i>
+                        <h3>Earn and customize</h3>
+                        <p>Level up, earn coins and unlock avatars, frames, board styles and victory effects. No in-app purchases.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="block">
+                <h2 class="section-heading">10 puzzles to race</h2>
+                <div class="worlds">
+                    <span>🧪 Sorting</span>
+                    <span>🧱 Blocks</span>
+                    <span>🔢 Numbers</span>
+                    <span>🚩 Pathfinder</span>
+                    <span>🏗️ Tower</span>
+                    <span>🧩 Fit</span>
+                    <span>🔄 Flip</span>
+                    <span>🚰 Pipes</span>
+                    <span>🎈 Pop</span>
+                    <span>🚗 Parking</span>
+                </div>
+                <p class="note">
+                    Puzzle Race is free and supported by ads. Online play needs an internet connection; solo practice works offline.
+                    Questions or feedback? Email
+                    <a href="mailto:realgamesrealfun@outlook.com">realgamesrealfun@outlook.com</a>.
+                    <br /><a href="puzzle-race-privacy-policy.html">Privacy Policy</a> &middot;
+                    <a href="puzzle-race-terms-of-use.html">Terms of Use</a> &middot;
+                    <a href="puzzle-race-account-deletion.html">Delete your account</a>
+                </p>
+            </section>
+        </main>
+    </body>
+</html>
